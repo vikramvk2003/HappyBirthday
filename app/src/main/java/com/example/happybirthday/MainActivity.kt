@@ -1,5 +1,6 @@
 package com.example.happybirthday
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,8 +16,11 @@ class MainActivity : AppCompatActivity() {
 
     fun CreateBirthdayCard(view: View)
     {
-        val Name = Name.text
-        Toast.makeText(this, "$Name",Toast.LENGTH_LONG).show()
+        val name = Name.editableText.toString()
+        val intent = Intent(this, BirthdayGreetingActivity::class.java)
+        intent.putExtra(BirthdayGreetingActivity.NAME_EXTRA, name )
+        startActivity(intent)
+
     }
 
 }
